@@ -16,23 +16,24 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AddEditViewModel @Inject constructor(
+class AddEditNoteViewModel @Inject constructor(
     private val noteUseCase: NoteUseCase,
     savedStateHandle: SavedStateHandle
 ):ViewModel() {
-    private val _noteTitle= mutableStateOf(NoteTextFieldState())
+    private val _noteTitle= mutableStateOf(NoteTextFieldState(hint="Enter Title"))
     val noteTitle: State<NoteTextFieldState> = _noteTitle
 
-    private val _noteContent= mutableStateOf(NoteTextFieldState())
+    private val _noteContent= mutableStateOf(NoteTextFieldState(hint = "Enter Note Content"))
     val noteContent: State<NoteTextFieldState> = _noteContent
 
     private val _noteColor= mutableStateOf(Note.nodeColors.random().toArgb())
     val noteColor: State<Int> = _noteColor
 
+
     private val _eventFlow= MutableSharedFlow<UiEvent>()
     val eventFlow=_eventFlow.asSharedFlow()
-
     private var currentNoteId:Int? = null
+
     init {
         savedStateHandle.get<Int>("noteId")?.let{noteId->
             if(noteId!=-1){
@@ -74,7 +75,8 @@ class AddEditViewModel @Inject constructor(
             }
             is AddEditNoteEvent.ChangeContentFocus->{
                 _noteContent.value=_noteContent.value.copy(
-                    isHintVisible = !event.focusState.isFocused && noteContent.value.text.isBlank()
+                    isHintVisible = !event.focusState.isFocused &&
+                            noteContent.value.text.isBlank()
                 )
             }
             is AddEditNoteEvent.ChangeColor->{
@@ -97,7 +99,7 @@ class AddEditViewModel @Inject constructor(
                     catch (e:InvalidNoteException){
                         _eventFlow.emit(
                             UiEvent.ShowSnackBar(
-                                message = e.message?: "Unknown error"
+                                message = e.message?: "Couldn't Save Note"
                             )
                         )
                     }

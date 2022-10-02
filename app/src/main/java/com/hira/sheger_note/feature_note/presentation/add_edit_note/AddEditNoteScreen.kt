@@ -11,6 +11,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.Icon
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Edit
 
 import androidx.compose.runtime.Composable
@@ -36,7 +37,7 @@ import kotlinx.coroutines.launch
 fun AddEditNoteScreen(
     navController:NavController,
     noteColor: Int,
-    viewModel: AddEditViewModel = hiltViewModel()
+    viewModel: AddEditNoteViewModel = hiltViewModel()
 ){
     val titleState = viewModel.noteTitle.value
     val contentState = viewModel.noteContent.value
@@ -51,13 +52,13 @@ fun AddEditNoteScreen(
     LaunchedEffect(key1 = true ){
         viewModel.eventFlow.collectLatest { event->
             when(event){
-                is AddEditViewModel.UiEvent.ShowSnackBar -> {
+                is AddEditNoteViewModel.UiEvent.ShowSnackBar -> {
                     scaffoldState.snackbarHostState.showSnackbar(
                         message = event.message
                     )
 
                 }
-                is AddEditViewModel.UiEvent.SaveNote ->{
+                is AddEditNoteViewModel.UiEvent.SaveNote ->{
                     navController.navigateUp()
                 }
             }
@@ -71,7 +72,7 @@ fun AddEditNoteScreen(
             },
             backgroundColor = MaterialTheme.colors.primary) {
                 Icon(
-                    imageVector = Icons.Default.Edit,
+                    imageVector = Icons.Default.ArrowDropDown,
                     contentDescription = "Save note")
 
             }
@@ -81,7 +82,9 @@ fun AddEditNoteScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(noteBackgroundAnimatable.value)) {
+                .background(noteBackgroundAnimatable.value)
+                .padding(16.dp)
+        ) {
             Row (
                 modifier = Modifier
                     .fillMaxWidth()
@@ -93,14 +96,14 @@ fun AddEditNoteScreen(
                     val colorInt = colors.toArgb()
                     Box(
                     modifier = Modifier
-                        .size(50.dp)
+                        .size(40.dp)
                         .shadow(15.dp, CircleShape)
                         .clip(CircleShape)
                         .background(colors)
                         .border(
-                            width = 3.dp,
+                            width = 2.dp,
                             color = if (viewModel.noteColor.value == colorInt) {
-                                Color.Black
+                                Color.Red
 
                             } else Color.Transparent,
                             shape = CircleShape
@@ -118,9 +121,7 @@ fun AddEditNoteScreen(
                             viewModel.onEvent(AddEditNoteEvent.ChangeColor(colorInt))
                         }
 
-                    ){
-
-                    }
+                    )
                 }
 
             }
@@ -161,7 +162,7 @@ fun AddEditNoteScreen(
                 isHintVisible = contentState.isHintVisible,
                 textStyle = MaterialTheme.typography.body1,
                 modifier = Modifier.fillMaxHeight()
-                    .fillMaxWidth().background(color = Color.DarkGray)
+                    .fillMaxWidth()
             )
 
         }

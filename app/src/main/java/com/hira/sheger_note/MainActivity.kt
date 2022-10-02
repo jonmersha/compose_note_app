@@ -61,8 +61,10 @@ fun MainScreen(){
                 composable(
                     route=Screen.AddEditNoteScreen.route +
                             "?noteId={noteId}&noteColor={noteColor}",
-                    arguments = listOf(navArgument(name="notId")
-                    {
+                    arguments = listOf(
+                        navArgument(
+                            name="noteId"
+                        ) {
                             type= NavType.IntType
                             defaultValue = -1
                         },

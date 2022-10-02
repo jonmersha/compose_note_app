@@ -1,6 +1,4 @@
 package com.hira.sheger_note.feature_note.presentation.notes
-
-
 import androidx.compose.animation.*
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -9,6 +7,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.ThumbUp
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -34,7 +34,7 @@ fun NoteScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                          navController.navigate(Screen.AddEditNoteScreen.route+"?noteTitle={noteId}&noteContent={noteColor}"
+                          navController.navigate(Screen.AddEditNoteScreen.route+"?noteId={noteId}&noteContent={noteColor}"
                           )
             },
             backgroundColor = MaterialTheme.colors.primary
@@ -72,7 +72,7 @@ fun NoteScreen(
 
                     }) {
                     Icon(
-                        imageVector = Icons.Default.ThumbUp,
+                        imageVector = Icons.Default.Menu,
                         contentDescription = "Sort"
                     )
 
@@ -104,14 +104,14 @@ fun NoteScreen(
                             .fillMaxWidth()
                             .clickable {
                                        navController.navigate(
-                                           Screen.AddEditNoteScreen.route + "?notesId=${note.id}&noteColor=${note.color}")
+                                           Screen.AddEditNoteScreen.route + "?noteId=${note.id}&noteColor=${note.color}")
                             },
                         onDeleteClick = {
                             viewModel.onEvent(NotesEvent.DeleteNote(note))
                             scope.launch {
                                val result= scaffoldState.snackbarHostState.showSnackbar(
                                    message = "Note Deleted",
-                                   actionLabel = null
+                                   actionLabel = "Undo"
                                )
                                 if(result==SnackbarResult.ActionPerformed){
                                      viewModel.onEvent(NotesEvent.RestoreNote)

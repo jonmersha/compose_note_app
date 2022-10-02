@@ -22,16 +22,13 @@ import javax.inject.Inject
 class NoteViewModel @Inject constructor(
     private val noteUseCase:NoteUseCase
 ):ViewModel() {
-
-
-
     private val _state = mutableStateOf(NoteStates())
     val state: State<NoteStates> = _state
-    private var recentlyDelatedNote:Note?=null
+    private var recentlyDeletedNote:Note?=null
 
     private var getNotesJob: Job?=null
     init{
-        getsNote(NoteOrder.Date(OrderType.Descending))
+        getNotes(NoteOrder.Date(OrderType.Descending))
     }
 
     fun onEvent(event: NotesEvent){
@@ -41,37 +38,31 @@ class NoteViewModel @Inject constructor(
                     state.value.noteOrder.orderType == event.noteOrder.orderType){
                     return
                 }
-                getsNote(event.noteOrder)
-
+                getNotes(event.noteOrder)
             }
             is NotesEvent.DeleteNote->{
                 viewModelScope.launch{
                     noteUseCase.deleteNote(event.note)
-                    recentlyDelatedNote=event.note
+                    recentlyDeletedNote=event.note
 
                 }
-
-
             }
             is NotesEvent.RestoreNote->{
                 viewModelScope.launch {
-                    noteUseCase.addNote(recentlyDelatedNote?:return@launch)
-                    recentlyDelatedNote=null
+                    noteUseCase.addNote(recentlyDeletedNote?:return@launch)
+                    recentlyDeletedNote=null
                 }
-
             }
             is NotesEvent.ToggleOrderSection -> {
                 _state.value = state.value.copy(
                     isOrderSectionVisible = !state.value.isOrderSectionVisible
                 )
-
-
-
             }
 
         }
     }
-    private fun getsNote(noteOrder: NoteOrder){
+
+    private fun getNotes(noteOrder: NoteOrder){
         getNotesJob?.cancel()
         getNotesJob=noteUseCase.getNotes(noteOrder).onEach { notes->
             _state.value=state.value.copy(
