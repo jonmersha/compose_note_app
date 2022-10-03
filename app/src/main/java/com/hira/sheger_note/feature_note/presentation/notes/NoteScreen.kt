@@ -10,8 +10,6 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.icons.filled.ThumbUp
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -24,6 +22,7 @@ import com.hira.sheger_note.feature_note.presentation.util.Screen
 import kotlinx.coroutines.launch
 
 
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun NoteScreen(
     navController: NavController,

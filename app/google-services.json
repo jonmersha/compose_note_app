@@ -1,0 +1,154 @@
+{
+  "project_info": {
+    "project_number": "447763793332",
+    "project_id": "qaro-cc38c",
+    "storage_bucket": "qaro-cc38c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447763793332:android:c97681f50182c2c8f21ee1",
+        "android_client_info": {
+          "package_name": "com.besheger.firestore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447763793332-27f5af389cdk6n5bg0lcijlv5jb6r0r3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIwLS1hcT1Lu7BS2qb0O6a3VCM-sGX5uc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447763793332-27f5af389cdk6n5bg0lcijlv5jb6r0r3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "447763793332-tav7vugv9srvi2dha865tu5491lkjk4g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.besheger.qaroo"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447763793332:android:237a7604bccde241f21ee1",
+        "android_client_info": {
+          "package_name": "com.besheger.qaroo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447763793332-27f5af389cdk6n5bg0lcijlv5jb6r0r3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIwLS1hcT1Lu7BS2qb0O6a3VCM-sGX5uc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447763793332-27f5af389cdk6n5bg0lcijlv5jb6r0r3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "447763793332-tav7vugv9srvi2dha865tu5491lkjk4g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.besheger.qaroo"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447763793332:android:c47dfc362f38beedf21ee1",
+        "android_client_info": {
+          "package_name": "com.example.qaroo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447763793332-27f5af389cdk6n5bg0lcijlv5jb6r0r3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIwLS1hcT1Lu7BS2qb0O6a3VCM-sGX5uc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447763793332-27f5af389cdk6n5bg0lcijlv5jb6r0r3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "447763793332-tav7vugv9srvi2dha865tu5491lkjk4g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.besheger.qaroo"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447763793332:android:db1543885b5452bbf21ee1",
+        "android_client_info": {
+          "package_name": "com.hira.sheger_note"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447763793332-27f5af389cdk6n5bg0lcijlv5jb6r0r3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIwLS1hcT1Lu7BS2qb0O6a3VCM-sGX5uc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447763793332-27f5af389cdk6n5bg0lcijlv5jb6r0r3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "447763793332-tav7vugv9srvi2dha865tu5491lkjk4g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.besheger.qaroo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
