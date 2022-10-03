@@ -10,6 +10,8 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Sort
+import androidx.compose.material.icons.outlined.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -19,6 +21,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.hira.sheger_note.feature_note.presentation.notes.components.OrderSection
 import com.hira.sheger_note.feature_note.presentation.util.Screen
+import com.hira.sheger_note.ui.theme.Purple700
 import kotlinx.coroutines.launch
 
 
@@ -38,11 +41,11 @@ fun NoteScreen(
                           navController.navigate(Screen.AddEditNoteScreen.route+"?noteId={noteId}&noteContent={noteColor}"
                           )
             },
-            backgroundColor = MaterialTheme.colors.primary
+            backgroundColor = Purple700
 
             ) {
                 Icon(
-                    imageVector = Icons.Default.Add,
+                    imageVector = Icons.Outlined.Add,
                     contentDescription ="Add note" )
 
             }
@@ -73,7 +76,7 @@ fun NoteScreen(
 
                     }) {
                     Icon(
-                        imageVector = Icons.Default.Menu,
+                        imageVector = Icons.Default.Sort,
                         contentDescription = "Sort"
                     )
 

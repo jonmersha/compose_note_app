@@ -1,14 +1,19 @@
 package com.hira.sheger_note.feature_note.presentation.add_edit_note.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.focus.FocusState
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.TextStyle
 
 
@@ -29,11 +34,14 @@ fun TransparentHintTextField(
             onValueChange =onValueChange,
             textStyle=textStyle,
             modifier = Modifier
-                    .fillMaxWidth()
-                    .onFocusChanged {
-                onFocusChange(it)
-            }
+                .fillMaxWidth()
+                .fillMaxHeight()
+                .onFocusChanged {
+                    onFocusChange(it)
+                }
         )
+
+
         if(isHintVisible){
             Text(
                 text=hint,
@@ -42,3 +50,9 @@ fun TransparentHintTextField(
         }
     }
 }
+
+
+
+
+
+
