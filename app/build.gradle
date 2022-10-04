@@ -11,8 +11,15 @@ plugins {
 
 android {
 
+    signingConfigs {
+        release {
+        storeFile file('app/note_app.jks')
+            storePassword 'Yohannes.1'
+            keyAlias 'key0'
+            keyPassword 'Yohannes.1'
+        }
+    }
     compileSdk 33
-
     defaultConfig {
         applicationId "com.hira.sheger_note"
         minSdk 21
@@ -24,7 +31,7 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
-        signingConfig signingConfigs.debug
+        signingConfig signingConfigs.release
         multiDexEnabled true
     }
 
