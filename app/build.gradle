@@ -6,11 +6,9 @@ plugins {
     id 'kotlin-kapt'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
-
 }
 
 android {
-
     signingConfigs {
         release {
         storeFile file('app/note_app.jks')
